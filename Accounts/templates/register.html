@@ -1,0 +1,85 @@
+<!-- registration.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <!-- JavaScript code for dynamic fields -->
+<!-- In the <head> section of your template -->
+    <script>
+        function showFields() {
+            var userType = document.getElementById('id_user_type').value;
+            if (userType == 'resident') {
+                document.getElementById('id_blood_pressure').parentNode.style.display = 'block';
+                document.getElementById('id_diabetes').parentNode.style.display = 'block';
+                document.getElementById('id_cholesterol').parentNode.style.display = 'block';
+                document.getElementById('id_allergies').parentNode.style.display = 'block';
+                document.getElementById('id_chronic_conditions').parentNode.style.display = 'block';
+                document.getElementById('id_medications').parentNode.style.display = 'block';
+                document.getElementById('id_diet_details').parentNode.style.display = 'block';
+                document.getElementById('id_documents').parentNode.style.display = 'block';
+
+                document.getElementById('id_role').parentNode.style.display = 'none';
+            } else if (userType == 'staff') {
+                document.getElementById('id_cholesterol').parentNode.style.display = 'none';
+                document.getElementById('id_blood_pressure').parentNode.style.display = 'none';
+                document.getElementById('id_diabetes').parentNode.style.display = 'none';
+                document.getElementById('id_cholesterol').parentNode.style.display = 'none';
+                document.getElementById('id_allergies').parentNode.style.display = 'none';
+                document.getElementById('id_chronic_conditions').parentNode.style.display = 'none';
+                document.getElementById('id_medications').parentNode.style.display = 'none';
+                document.getElementById('id_diet_details').parentNode.style.display = 'none';
+                document.getElementById('id_documents').parentNode.style.display = 'none';
+
+            } else {
+                document.getElementById('id_role').parentNode.style.display = 'none';
+                document.getElementById('id_blood_pressure').parentNode.style.display = 'none';
+                document.getElementById('id_diabetes').parentNode.style.display = 'none';
+                document.getElementById('id_cholesterol').parentNode.style.display = 'none';
+                document.getElementById('id_allergies').parentNode.style.display = 'none';
+                document.getElementById('id_chronic_conditions').parentNode.style.display = 'none';
+                document.getElementById('id_medications').parentNode.style.display = 'none';
+                document.getElementById('id_diet_details').parentNode.style.display = 'none';
+                document.getElementById('id_documents').parentNode.style.display = 'none';
+                document.getElementById('id_emergency_contact').parentNode.style.display = 'none';
+                document.getElementById('id_name_of_person').parentNode.style.display = 'none';
+            }
+        }
+    </script>
+    
+</head>
+<body>
+    <h2>User Registration</h2>
+    <!-- Registration form -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <!-- Form fields -->
+        <!-- Resident fields -->
+        <div id="id_blood_pressure" style="display: none;">
+            <p>
+                <label for="id_blood_pressure">Blood pressure:</label>
+                <input type="text" name="blood pressure" id="id_blood_pressure">
+            </p>
+        </div>
+        <div id="id_diabetes" style="display: none;">
+            <p>
+                <label for="id_diabetes">Diabetes:</label>
+                <input type="text" name="diabetes" id="id_diabetes">
+            </p>
+        </div>
+        <div id="id_cholesterol" style="display: none;">
+            <p>
+                <label for="id_cholesterol">Resident Field 3:</label>
+                <input type="text" name="cholesterol" id="id_cholesterol">
+            </p>
+        </div>
+        <!-- Other fields -->
+        <!-- Submit button -->
+        <input type="submit" value="Register">
+    </form>
+    <p>Already have an account? <a href="#">Login here</a>.</p>
+</body>
+</html>
