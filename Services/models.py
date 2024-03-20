@@ -41,4 +41,9 @@ class Feedback(models.Model):
     name = models.CharField(max_length = 30)
     email = models.EmailField()
     message = models.TextField(max_length = 200)
-    
+
+class Inventory(models.Model):
+    location=models.CharField(max_length=100)
+    total_strength=models.CharField(max_length=500)
+    available_units=models.CharField(max_length=500)
+    last_updated=models.DateTimeField(auto_now=True)
