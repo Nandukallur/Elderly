@@ -60,3 +60,14 @@ def feedback(request):
 
 def Activities(request):
     return render(request, 'activities.html')
+
+def inventory(request):
+    if request.method == 'POST':
+        form=InventoryForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('inventory.html') 
+        else:
+            form=InventoryForm()
+            return render(request,'inventory.html')
+    return render(request,'inventory.html')
