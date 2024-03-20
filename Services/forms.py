@@ -23,3 +23,9 @@ class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
         fields = '__all__'
+
+class InventoryForm(forms.ModelForm):
+    class Meta:
+        model=Inventory
+        fields='_all_'
+        read_only_fields=["location","total_strength","available_units","last_updated"]
